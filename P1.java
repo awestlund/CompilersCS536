@@ -48,13 +48,13 @@ public class P1 {
         // Test Sym toSymString() method
         // Does method compile
         try{
-            String toString = testSym.toSymString();
+            String toString = testSym.toString();
         } catch (Exception e){
             System.out.println("Sym getType failed with the following exception:" + e);
         }
 
         // Does getType return correct result
-        String toString = testSym.toSymString();
+        String toString = testSym.toString();
         if (toString != "String") {
             System.out.println("Sym getType failed type was supposed to be String but accutally was " + toString);
         }

@@ -1,6 +1,6 @@
 public class Sym{
     private String type;
-    
+
     // This is the constructor; it should initialize the Sym to have the given type.
     Sym(String type){
         this.type = type;
@@ -12,7 +12,7 @@ public class Sym{
     }
 
     // Return this Sym's type. (This method will be changed later in a future project when more information is stored in a Sym.)
-    String toSymString(){
+    public String toString(){
         return this.type;
     }
 }
