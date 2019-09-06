@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TestList",
+            "request": "launch",
+            "mainClass": "TestList"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TestSym",
+            "request": "launch",
+            "mainClass": "TestSym"
+        }
+    ]
+}
