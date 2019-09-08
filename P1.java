@@ -80,25 +80,25 @@ public class P1 {
             SymTable testSymTable = new SymTable();
             testSymTable.addDecl("name", testSym);
             System.out.println("SymTable's addDecl does not throw an EmptySymTableException");
-        } catch (EmptySymTableException e){}
+        } catch (DuplicateSymException | EmptySymTableException e){}
         //If either name or sym (or both) is null, throw a NullPointerException.
         try{
             SymTable testSymTable = new SymTable();
             testSymTable.addDecl("", testSym);
             System.out.println("SymTable's addDecl does not throw a NullPointerException");
-        } catch (EmptySymTableException | NullPointerException e){}
+        } catch (DuplicateSymException | EmptySymTableException | NullPointerException e){}
         try{
             SymTable testSymTable = new SymTable();
             Sym nullSym = new Sym("String");
             testSymTable.addDecl("name", nullSym);
             System.out.println("SymTable's addDecl does not throw a NullPointerException");
-        } catch (EmptySymTableException | NullPointerException e){}
+        } catch (DuplicateSymException | EmptySymTableException | NullPointerException e){}
         try{
             SymTable testSymTable = new SymTable();
             Sym nullSym = new Sym("String");
             testSymTable.addDecl("", nullSym);
             System.out.println("SymTable's addDecl does not throw a NullPointerException");
-        } catch (EmptySymTableException | NullPointerException e){}
+        } catch (DuplicateSymException | EmptySymTableException | NullPointerException e){}
         //If the first HashMap in the list already contains the given name as a key, throw a DuplicateSymException. 
         try{
             SymTable testSymTable = new SymTable();
@@ -167,7 +167,7 @@ public class P1 {
             if (returnSym2 != null){
                 System.out.println("SymTable lookupGlobal failed, it didnt return null");
             }
-        } catch (EmptySymTableException e){
+        } catch (DuplicateSymException | EmptySymTableException e){
             System.out.println("SymTable lookupGlobalfailed with the following exception:" + e);
         }
 
@@ -188,6 +188,6 @@ public class P1 {
             testSymTable.removeScope();
             testSymTable.lookupLocal("name3");
             System.out.println("SymTable's removeScope() does not tclear the list");
-        } catch (EmptySymTableException e){}
+        } catch (DuplicateSymException | EmptySymTableException e){}
     }
 }
