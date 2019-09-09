@@ -1,3 +1,3 @@
 public class DuplicateSymException extends Exception {
-    DuplicateSymException(){}
+    public DuplicateSymException(){}
 }

@@ -1,3 +1,3 @@
 public class EmptySymTableException extends Exception {
-    EmptySymTableException(){}
+    public EmptySymTableException(){}
 }
