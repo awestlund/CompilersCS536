@@ -137,11 +137,16 @@ public class P1 {
         try {
             SymTable testSymTable10 = new SymTable();
             testSymTable10.addDecl("name2", testSym);
+            //make sure we find the correct 'name2' by adding a new hasmap
+            testSymTable10.addScope();
+            Sym testSym2 = new Sym("int");
+            testSymTable10.addDecl("name2", testSym2);
             Sym returnSym = testSymTable10.lookupLocal("name2");
-            if (returnSym == null) {
+            
+            if (returnSym == null ) {
                 System.out.println("SymTable lookupLocal failed");
             }
-            if (returnSym != testSym) {
+            if (returnSym != testSym2) {
                 System.out.println("SymTable lookupLocal failed, it returned the wrong Sym");
             }
         } catch (Exception e) {
@@ -167,12 +172,16 @@ public class P1 {
             // If any HashMap in the list contains name as a key, return the first
             // associated Sym (i.e., the one from the HashMap that is closest to the front
             // of the list);
-            if (returnSym != testSym) {
+            testSymTable12.addScope();
+            Sym testSym3 = new Sym("int");
+            testSymTable12.addDecl("name3", testSym3);
+            Sym returnSym2 = testSymTable12.lookupGlobal("name3");
+            if (returnSym2 != testSym3) {
                 System.out.println("SymTable lookupGlobal failed, it returned the wrong Sym");
             }
             // otherwise, return null.
-            Sym returnSym2 = testSymTable12.lookupGlobal("name4");
-            if (returnSym2 != null) {
+            Sym returnSym3 = testSymTable12.lookupGlobal("name4");
+            if (returnSym3 != null) {
                 System.out.println("SymTable lookupGlobal failed, it didnt return null");
             }
         } catch (DuplicateSymException | EmptySymTableException e) {
@@ -187,7 +196,7 @@ public class P1 {
             System.out.println("SymTable's removeScope() does not throw an EmptySymTableException");
         } catch (EmptySymTableException e) {
         }
-        // remove the HashMap from the front of the list.
+        // remove all the HashMaps in the list.
         try {
             SymTable testSymTable14 = new SymTable();
             testSymTable14.addDecl("name3", testSym);

@@ -33,7 +33,6 @@ public class SymTable {
         if (lookupLocal(name) != null) {
             throw new DuplicateSymException();
         }
-        addScope();
         table.get(0).put(name, sym);
     }
 
